@@ -1,37 +1,40 @@
-package com.meqdaddev.eventapi.services.implementations;
+package com.meqdaddev.eventapi.controllers;
 
 import com.meqdaddev.eventapi.dto.ClubDto;
 import com.meqdaddev.eventapi.models.Club;
-import com.meqdaddev.eventapi.repository.ClubRepository;
 import com.meqdaddev.eventapi.services.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service
-public class ClubServiceImpl implements ClubService {
-
-
+@Controller
+public class ClubController {
     @Autowired
-    private ClubRepository clubRepository;
+    private ClubService clubService;
 
-    @Override
-    public List<ClubDto> findAllClubs() {
-        List<Club> clubs = clubRepository.findAll();
-        return clubs.stream().map(club -> mapToClubDto(club)).collect(Collectors.toList());
+    @GetMapping("/clubs")
+    public String listClubs(Model model) {
+        List<ClubDto> clubs = clubService.findAllClubs();
+        model.addAttribute("clubs", clubs);
+        return "clubs-list";
     }
 
-    public ClubDto mapToClubDto(Club club) {
-        ClubDto clubDto = ClubDto.builder()
-                .id(club.getId())
-                .title(club.getTitle())
-                .photoUrl(club.getPhotoUrl())
-                .content(club.getContent())
-                .createdOn(club.getCreatedOn())
-                .updateOn(club.getUpdateOn())
-                .build();
-        return clubDto;
+    @GetMapping("/clubs/new")
+    public String createClubForm(Model model) {
+        Club club = new Club();
+        model.addAttribute("club", club);
+        return "clubs-create";
+    }
+
+    @PostMapping("/clubs/new")
+    public String saveClub(@ModelAttribute("club") Club club) {
+        clubService.saveClub(club);
+        return "redirect:/clubs";
+
     }
 }
