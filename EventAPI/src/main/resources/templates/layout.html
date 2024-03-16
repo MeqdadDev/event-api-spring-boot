@@ -11,15 +11,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Eventous System</title>
-
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{css/bootstrap-icons.css}" rel="stylesheet">
-    <link th:href="@{css/templatemo-topic-listing.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/templatemo-topic-listing.css}" rel="stylesheet">
 
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Eventous</title>
 </head>
@@ -41,7 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-5 me-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
+                    <a class="nav-link click-scroll" th:href="@{clubs}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" th:href="@{clubs/new}">Create Club</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -71,11 +72,11 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
 
-                        <li class="breadcrumb-item active" aria-current="page">Events Listing</li>
+                        <li class="breadcrumb-item active" aria-current="page">Eventous</li>
                     </ol>
                 </nav>
 
-                <h2 class="text-white">Events Listing</h2>
+                <h2 class="text-white">Eventous</h2>
             </div>
 
         </div>
@@ -114,10 +115,10 @@
 </footer>
 
 <!-- JAVASCRIPT FILES -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/custom.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.sticky.js"></script>
+<script src="/js/custom.js"></script>
 
 
 </html>
