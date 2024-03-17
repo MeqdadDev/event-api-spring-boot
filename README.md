@@ -7,7 +7,7 @@ Spring Boot + Thymeleaf
 
 <p align="center">
 <picture>
-  <img alt="PixCraft Logo" src="logo.png" width="29%" hight="29%" >
+  <img alt="PixCraft Logo" src="logo.png" width="90%" hight="90%" >
 </picture>
 
 </p>
