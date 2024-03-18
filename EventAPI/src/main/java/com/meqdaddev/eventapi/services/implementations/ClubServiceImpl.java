@@ -34,6 +34,16 @@ public class ClubServiceImpl implements ClubService {
         return mapToClubDto(club);
     }
 
+    private Club mapToClub(ClubDto clubDto) {
+        return Club.builder()
+                .id(clubDto.getId())
+                .title(clubDto.getTitle())
+                .photoUrl(clubDto.getPhotoUrl())
+                .content(clubDto.getContent())
+                .createdOn(clubDto.getCreatedOn())
+                .updateOn(clubDto.getUpdateOn())
+                .build();
+    }
 
     public ClubDto mapToClubDto(Club club) {
         return ClubDto.builder()
