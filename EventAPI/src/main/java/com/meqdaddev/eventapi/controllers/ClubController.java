@@ -3,9 +3,11 @@ package com.meqdaddev.eventapi.controllers;
 import com.meqdaddev.eventapi.dto.ClubDto;
 import com.meqdaddev.eventapi.models.Club;
 import com.meqdaddev.eventapi.services.ClubService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +35,12 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/new")
-    public String saveClub(@ModelAttribute("club") Club club) {
-        clubService.saveClub(club);
+    public String saveClub(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("club", clubDto);
+            return "clubs-create";
+        }
+        clubService.saveClub(clubDto);
         return "redirect:/clubs";
 
     }
@@ -47,7 +53,12 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{clubId}/edit")
-    public String updateClub(@PathVariable("clubId") Long clubId, @ModelAttribute("club") ClubDto clubDto) {
+    public String updateClub(@PathVariable("clubId") Long clubId,
+                             @Valid @ModelAttribute("club") ClubDto clubDto,
+                             BindingResult result) {
+        if (result.hasErrors()) {
+            return "clubs-edit";
+        }
         clubDto.setId(clubId);
         clubService.updateClub(clubDto);
         return "redirect:/clubs";
