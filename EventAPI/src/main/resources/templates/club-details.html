@@ -1,0 +1,31 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+<body class="topics-listing-page" id="top">
+
+<main>
+
+    <section layout:fragment="body" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12 m-auto">
+                    <h3 class="mb-4" th:text="${club.title}"></h3>
+                    <p th:text="${club.createdOn}" style="color: #6c757d"></p>
+                    <p th:text="${club.content}"></p>
+
+                    <div class="row align-content-center">
+                        <div class="col-lg-8 col-md-6 col-12">
+                            <img th:src="${club.photoUrl}" class="topics-detail-block-image img-fluid" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
