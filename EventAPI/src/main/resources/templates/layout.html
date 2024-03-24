@@ -70,7 +70,7 @@
             <div class="col-lg-5 col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
+                        <li class="breadcrumb-item"><a th:href="@{/clubs}">Homepage</a></li>
 
                         <li class="breadcrumb-item active" aria-current="page">Eventous</li>
                     </ol>
@@ -90,7 +90,7 @@
         <div class="row">
 
             <div class="col-lg-3 col-12 mb-4 pb-2">
-                <a class="navbar-brand mb-2" href="index.html">
+                <a class="navbar-brand mb-2" th:href="@{/clubs}">
                     <i class="bi-back"></i>
                     <span>Eventous</span>
                 </a>
@@ -101,11 +101,11 @@
 
                 <ul class="site-footer-links">
                     <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">Home</a>
+                        <a th:href="@{/clubs}" class="site-footer-link">Home</a>
                     </li>
 
                     <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">FAQs</a>
+                        <a th:href="@{/clubs/new}" class="site-footer-link">Create Club</a>
                     </li>
                 </ul>
             </div>
