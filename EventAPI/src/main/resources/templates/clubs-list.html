@@ -24,11 +24,13 @@
                                 <div>
                                     <h5 th:text="${club.title}" class="mb-2"></h5>
                                     <p th:text="${club.content}" class="mb-0"></p>
+                                    <a th:href="@{/clubs/{clubId}(clubId=${club.id})}" class="btn custom-btn mt-3 mt-lg-4">
+                                        Details
+                                    </a>
                                     <a th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}" class="btn custom-btn mt-3 mt-lg-4">
                                         Edit
                                     </a>
                                 </div>
-<!--                                <span class="badge bg-design rounded-pill ms-auto">14</span>-->
                             </div>
                         </div>
                     </div>
