@@ -20,8 +20,14 @@
                             <img th:src="${club.photoUrl}" class="topics-detail-block-image img-fluid" alt="">
                         </div>
                     </div>
-
+                    <a th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}" class="btn custom-btn mt-3 mt-lg-4">
+                        Edit
+                    </a>
+                    <a th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}" class="btn custom-btn bg-danger mt-3 mt-lg-4">
+                        Delete
+                    </a>
                 </div>
+
             </div>
         </div>
     </section>
