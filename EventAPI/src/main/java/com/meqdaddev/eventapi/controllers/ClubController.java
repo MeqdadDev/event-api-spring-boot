@@ -28,7 +28,7 @@ public class ClubController {
     }
 
     @GetMapping("/clubs/{clubId}")
-    public String clubDetail(@PathVariable("clubId") long clubId, Model model) {
+    public String clubDetail(@PathVariable("clubId") Long clubId, Model model) {
         ClubDto clubDto = clubService.findClubById(clubId);
         model.addAttribute("club", clubDto);
         return "club-details";
@@ -68,6 +68,12 @@ public class ClubController {
         }
         clubDto.setId(clubId);
         clubService.updateClub(clubDto);
+        return "redirect:/clubs";
+    }
+
+    @GetMapping("/clubs/{clubId}/delete")
+    public String deleteClub(@PathVariable("clubId") Long clubId) {
+        clubService.delete(clubId);
         return "redirect:/clubs";
     }
 }
