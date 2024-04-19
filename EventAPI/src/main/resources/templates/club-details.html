@@ -26,6 +26,31 @@
                     <a th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}" class="btn custom-btn bg-danger mt-3 mt-lg-4">
                         Delete
                     </a>
+                    <a th:href="@{/events/{clubId}/new(clubId=${club.id})}" class="btn custom-btn mt-3 mt-lg-4">
+                        Create Event
+                    </a>
+                </div>
+                <br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="col-lg-8 col-12 m-auto">
+                <h3 >Events for this Club</h3>
+                <div th:each="event :${club.events}" class="col-lg-8 col-12 mt-3 mx-auto">
+                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-4">
+                        <div class="d-flex">
+                            <img th:src="${event.photoUrl}" class="custom-block-image img-fluid" alt="">
+                            <div class="custom-block-topics-listing-info d-flex">
+                                <div>
+                                    <h5 th:text="${event.name}" class="mb-2"></h5>
+                                    <p th:text="${event.type}" class="mb-0"></p>
+                                    <p th:text="${event.createdOn}"></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
