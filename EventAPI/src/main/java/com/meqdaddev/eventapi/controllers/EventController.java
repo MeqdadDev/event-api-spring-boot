@@ -11,11 +11,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class EventController {
 
     @Autowired
     private EventService eventService;
+
+    @GetMapping("/events")
+    public String events(Model model) {
+        List<EventDto> events = eventService.findAllEvents();
+        model.addAttribute("events", events);
+        return "events-list";
+    }
 
     @GetMapping("/events/{clubId}/new")
     public String createEventForm(@PathVariable("clubId") Long clubId, Model model) {
