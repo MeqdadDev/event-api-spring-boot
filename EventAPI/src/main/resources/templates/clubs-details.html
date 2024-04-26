@@ -46,7 +46,9 @@
                                     <h5 th:text="${event.name}" class="mb-2"></h5>
                                     <p th:text="${event.type}" class="mb-0"></p>
                                     <p th:text="${event.createdOn}"></p>
-
+                                    <a th:href="@{/events/{eventId}(eventId=${event.id})}" class="btn custom-btn mt-3 mt-lg-4">
+                                        View
+                                    </a>
                                 </div>
                             </div>
                         </div>
