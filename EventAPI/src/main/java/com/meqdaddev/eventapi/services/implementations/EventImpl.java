@@ -1,5 +1,6 @@
 package com.meqdaddev.eventapi.services.implementations;
 
+import com.meqdaddev.eventapi.dto.ClubDto;
 import com.meqdaddev.eventapi.dto.EventDto;
 import com.meqdaddev.eventapi.models.Club;
 import com.meqdaddev.eventapi.models.Event;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.meqdaddev.eventapi.mapper.ClubMapper.mapToClub;
 import static com.meqdaddev.eventapi.mapper.EventMapper.mapToEvent;
 import static com.meqdaddev.eventapi.mapper.EventMapper.mapToEventDto;
 
@@ -42,6 +44,12 @@ public class EventImpl implements EventService {
     public EventDto findByEventId(Long eventId) {
         Event event = eventRepository.findById(eventId).get();
         return mapToEventDto(event);
+    }
+
+    @Override
+    public void updateEvent(EventDto eventDto) {
+        Event event = mapToEvent(eventDto);
+        eventRepository.save(event);
     }
 
 }
