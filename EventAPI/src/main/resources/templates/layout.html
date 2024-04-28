@@ -23,7 +23,7 @@
 </head>
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" th:href="@{/clubs}">
             <i class="bi-back"></i>
             <span>Eventous</span>
         </a>
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-5 me-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" th:href="@{clubs}">Home</a>
+                    <a class="nav-link click-scroll" th:href="@{/clubs}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link click-scroll" th:href="@{clubs/new}">Create Club</a>
@@ -111,6 +111,10 @@
 
                     <li class="site-footer-link-item">
                         <a th:href="@{/clubs/new}" class="site-footer-link">Create Club</a>
+                    </li>
+
+                    <li class="site-footer-link-item">
+                        <a th:href="@{/events}" class="site-footer-link">Find Event</a>
                     </li>
                 </ul>
             </div>

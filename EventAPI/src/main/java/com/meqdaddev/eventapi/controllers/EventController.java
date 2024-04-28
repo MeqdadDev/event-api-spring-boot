@@ -1,6 +1,5 @@
 package com.meqdaddev.eventapi.controllers;
 
-import com.meqdaddev.eventapi.dto.ClubDto;
 import com.meqdaddev.eventapi.dto.EventDto;
 import com.meqdaddev.eventapi.models.Event;
 import com.meqdaddev.eventapi.services.EventService;
@@ -74,6 +73,12 @@ public class EventController {
         eventDto.setId(eventId);
         eventDto.setClub(event.getClub());
         eventService.updateEvent(eventDto);
+        return "redirect:/events";
+    }
+
+    @GetMapping("/events/{eventId}/delete")
+    public String deleteEvent(@PathVariable("eventId") Long eventId, Model model) {
+        eventService.deleteEvent(eventId);
         return "redirect:/events";
     }
 
