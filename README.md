@@ -1,6 +1,5 @@
 # Eventous using Spring Boot and Thymeleaf
 
-
 <h3 align="center">
 Spring Boot + Thymeleaf
 </h3>
@@ -15,9 +14,11 @@ Spring Boot + Thymeleaf
 ---
 
 ### What is Eventous?
+
 Eventous is an Event Management System built using Spring Boot Framework with Thymeleaf Template Engine.
 
 ### Technical Stack:
+
 - Database: PostgreSQL
 - Back-end: Spring Boot using Java
 - Front-end: Thymeleaf Template Engine
@@ -25,6 +26,16 @@ Eventous is an Event Management System built using Spring Boot Framework with Th
 - Project Management Tool: Maven
 
 ### Features:
+
 - Basic CRUD Operations
-- Front-end Interfaces
-- SOoOn... We're working on more features...
+  - *Club Model*
+    - Create Club
+    - View Club Details
+    - Edit Club
+    - Delete Club
+  - *Event Model*
+    - Create Event
+    - View Event Details
+    - Edit Event
+    - Delete Event
+- Front-end Pages using Thymeleaf Template Engine
